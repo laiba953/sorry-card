@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Sorry For You 💌</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8edf1;
+    color:#4b3941;
+}
+
+.page{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:none;
+    overflow:hidden;
+}
+
+.page.active{
+    display:flex;
+}
+
+.content{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    padding:30px;
+    text-align:center;
+    position:relative;
+    z-index:5;
+}
+
+h1,h2{
+    font-family:'Cormorant Garamond',serif;
+}
+
+.script{
+    font-family:'Dancing Script',cursive;
+}
+
+/* COMMON BUTTON */
+
+.btn{
+    border:none;
+    padding:13px 27px;
+    border-radius:40px;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+    transition:.3s;
+    margin:8px;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.next{
+    background:#9f6678;
+    color:white;
+    box-shadow:0 10px 25px #9f667833;
+}
+
+.back{
+    background:white;
+    color:#805465;
+    border:1px solid #dcbcc8;
+}
+
+.buttons{
+    margin-top:28px;
+}
+
+/* NAVIGATION */
+
+.nav{
+    position:fixed;
+    bottom:22px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:100;
+    display:flex;
+    gap:7px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#d4aebb;
+    transition:.3s;
+}
+
+.dot.active{
+    width:25px;
+    border-radius:20px;
+    background:#936071;
+}
+
+/* FLOATING */
+
+.float{
+    position:absolute;
+    animation:float 6s infinite ease-in-out;
+    opacity:.7;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(0);}
+    50%{transform:translateY(-25px) rotate(10deg);}
+}
+
+.heart{
+    color:#c68196;
+    font-size:30px;
+}
+
+.flower{
+    font-size:35px;
+}
+
+.sparkle{
+    color:#c596a5;
+    font-size:25px;
+}
+
+/* PAGE 1 */
+
+#page1{
+    background:
+    radial-gradient(circle at 20% 20%,#fff 0,transparent 28%),
+    radial-gradient(circle at 80% 80%,#f2d9e2 0,transparent 35%),
+    linear-gradient(135deg,#faeef2,#f7e2e9);
+}
+
+.intro-box{
+    max-width:650px;
+    margin:auto;
+}
+
+.small{
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:11px;
+    color:#987080;
+}
+
+.title1{
+    font-size:clamp(55px,10vw,100px);
+    color:#87576a;
+    margin:15px 0;
+}
+
+.subtitle{
+    font-family:'Dancing Script',cursive;
+    font-size:29px;
+    color:#9d687b;
+}
+
+.pulse-heart{
+    display:inline-block;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.3);}
+}
+
+/* PAGE 2 */
+
+#page2{
+    background:#f4e8e1;
+}
+
+.paper{
+    background:#fffdf9;
+    max-width:700px;
+    margin:auto;
+    padding:50px 45px;
+    box-shadow:0 20px 50px #76554822;
+    transform:rotate(-1deg);
+    border-radius:3px;
+    position:relative;
+}
+
+.paper:before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:1px solid #dfc7bb;
+    pointer-events:none;
+}
+
+.paper h2{
+    font-size:48px;
+    color:#76564b;
+    margin-bottom:20px;
+}
+
+.typing{
+    font-family:'Dancing Script',cursive;
+    font-size:25px;
+    line-height:1.7;
+    min-height:140px;
+    color:#73544e;
+}
+
+/* PAGE 3 */
+
+#page3{
+    background:
+    linear-gradient(120deg,#dceaf0,#f5e6ec);
+}
+
+.cloud{
+    position:absolute;
+    width:150px;
+    height:55px;
+    background:#fff;
+    border-radius:50px;
+    opacity:.7;
+    animation:cloud 18s linear infinite;
+}
+
+.cloud:before,
+.cloud:after{
+    content:"";
+    position:absolute;
+    background:#fff;
+    border-radius:50%;
+}
+
+.cloud:before{
+    width:65px;
+    height:65px;
+    left:25px;
+    top:-28px;
+}
+
+.cloud:after{
+    width:80px;
+    height:80px;
+    right:20px;
+    top:-40px;
+}
+
+@keyframes cloud{
+    from{transform:translateX(-200px);}
+    to{transform:translateX(110vw);}
+}
+
+.sky-card{
+    background:#ffffffaa;
+    backdrop-filter:blur(15px);
+    border:1px solid #ffffff;
+    border-radius:35px;
+    padding:50px 30px;
+    max-width:650px;
+    margin:auto;
+    box-shadow:0 20px 60px #536a7420;
+}
+
+.sky-card h2{
+    font-size:48px;
+    color:#627c88;
+}
+
+/* PAGE 4 */
+
+#page4{
+    background:#e9ded8;
+}
+
+.envelope{
+    width:280px;
+    height:190px;
+    background:#d5a9a1;
+    margin:35px auto;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 20px 40px #67473e33;
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:100px solid #bd8d87;
+    transform-origin:top;
+    transition:1s;
+    z-index:4;
+}
+
+.envelope.open:before{
+    transform:rotateX(180deg);
+}
+
+.letter{
+    position:absolute;
+    background:#fffdf7;
+    width:230px;
+    height:160px;
+    left:25px;
+    top:15px;
+    padding:25px;
+    transition:1s;
+    z-index:2;
+    font-family:'Dancing Script',cursive;
+    font-size:20px;
+}
+
+.envelope.open .letter{
+    transform:translateY(-130px);
+}
+
+/* PAGE 5 */
+
+#page5{
+    background:#efe5ee;
+}
+
+.polaroids{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.polaroid{
+    background:white;
+    width:170px;
+    padding:10px 10px 35px;
+    box-shadow:0 15px 30px #4f354922;
+    transition:.4s;
+}
+
+.polaroid:nth-child(1){transform:rotate(-7deg);}
+.polaroid:nth-child(2){transform:rotate(4deg);}
+.polaroid:nth-child(3){transform:rotate(-3deg);}
+
+.polaroid:hover{
+    transform:rotate(0) translateY(-15px) scale(1.05);
+}
+
+.photo{
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#ead2db,#f8e8ed);
+    font-size:50px;
+}
+
+.caption{
+    font-family:'Dancing Script',cursive;
+    margin-top:12px;
+    font-size:20px;
+}
+
+/* PAGE 6 */
+
+#page6{
+    background:#f3dfe3;
+}
+
+.reason-box{
+    max-width:700px;
+    margin:auto;
+}
+
+.reason{
+    background:#fff9fa;
+    padding:20px;
+    border-radius:20px;
+    margin:10px auto;
+    max-width:500px;
+    opacity:0;
+    transform:translateX(-50px);
+}
+
+.reason.show{
+    animation:slideIn .7s forwards;
+}
+
+@keyframes slideIn{
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.reason span{
+    color:#a96b7e;
+    font-weight:600;
+}
+
+/* PAGE 7 */
+
+#page7{
+    background:#f7eadf;
+}
+
+.bloom{
+    font-size:90px;
+    display:inline-block;
+    animation:bloom 2s infinite alternate;
+}
+
+@keyframes bloom{
+    from{transform:scale(.9) rotate(-4deg);}
+    to{transform:scale(1.1) rotate(4deg);}
+}
+
+.promise{
+    background:#fffaf4;
+    border-radius:30px;
+    padding:35px;
+    max-width:600px;
+    margin:auto;
+    box-shadow:0 20px 50px #76503a22;
+}
+
+/* PAGE 8 */
+
+#page8{
+    background:#ded8ed;
+}
+
+.question{
+    font-size:clamp(35px,7vw,70px);
+    color:#655579;
+}
+
+.accept-box{
+    margin-top:35px;
+}
+
+.accept{
+    background:#836c9c;
+    color:white;
+}
+
+.no{
+    background:white;
+    color:#725d84;
+    position:relative;
+}
+
+/* PAGE 9 */
+
+#page9{
+    background:#20202a;
+    color:#fff;
+}
+
+#page9 .content{
+    max-width:750px;
+}
+
+.final-letter{
+    background:#ffffff0c;
+    border:1px solid #ffffff1a;
+    padding:40px;
+    border-radius:30px;
+    backdrop-filter:blur(12px);
+}
+
+.final-letter h2{
+    color:#f2cbd6;
+    font-size:50px;
+}
+
+.final-letter p{
+    line-height:2;
+    color:#ddd4da;
+    margin-top:20px;
+}
+
+/* PAGE 10 */
+
+#page10{
+    background:
+    radial-gradient(circle at center,#f5d8e2,#d8aebd 45%,#9b687a);
+    color:white;
+}
+
+.big-heart{
+    font-size:110px;
+    animation:heartbeat 1.2s infinite;
+    filter:drop-shadow(0 15px 20px #50293855);
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1);}
+    15%{transform:scale(1.15);}
+    30%{transform:scale(1);}
+    45%{transform:scale(1.12);}
+}
+
+.end-title{
+    font-size:clamp(45px,8vw,80px);
+}
+
+.restart{
+    background:white;
+    color:#8a596b;
+}
+
+/* PETALS */
+
+.petal{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    pointer-events:none;
+    z-index:20;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(500deg);
+        opacity:0;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+    .content{
+        padding:20px;
+    }
+
+    .paper{
+        padding:35px 22px;
+    }
+
+    .paper h2,
+    .sky-card h2{
+        font-size:38px;
+    }
+
+    .typing{
+        font-size:21px;
+    }
+
+    .polaroid{
+        width:120px;
+        padding-bottom:25px;
+    }
+
+    .photo{
+        height:110px;
+    }
+
+    .envelope{
+        transform:scale(.85);
+    }
+
+    .buttons{
+        margin-top:18px;
+    }
+
+    .btn{
+        padding:11px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+
+    <span class="float heart" style="left:8%;top:18%;">♡</span>
+    <span class="float flower" style="right:10%;top:15%;">✿</span>
+    <span class="float sparkle" style="left:15%;bottom:20%;">✦</span>
+    <span class="float heart" style="right:15%;bottom:25%;">♡</span>
+
+    <div class="content">
+        <div class="intro-box">
+            <p class="small">a little something from my heart</p>
+
+            <h1 class="title1">
+                I'm Sorry
+                <span class="pulse-heart">♡</span>
+            </h1>
+
+            <p class="subtitle">
+                Not just a word... but a feeling.....
+            </p>
+
+            <p style="margin-top:25px;color:#8a6875;">
+                muje maloom ha meiny apny bachy ko naraz kia ha i m sorry zuu's zar...<br>
+                I M SORRY PRINCESS I M REALLY SORRY JANNNN..... PLZZZZZZZZZ
+            </p>
+
+            <div class="buttons">
+                <button class="btn next" onclick="nextPage()">
+                    Open My Little Sorry 💌
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+
+    <div class="content">
+        <div class="paper">
+
+            <h2>QUEEN OF MY HEART...</h2>
+
+            <div class="typing" id="typingText"></div>
+
+            <div class="buttons">
+                <button class="btn back" onclick="prevPage()">← Back</button>
+                <button class="btn next" onclick="nextPage()">Keep Reading →</button>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+
+    <div class="cloud" style="top:15%;left:-200px;"></div>
+    <div class="cloud" style="top:40%;left:-300px;animation-delay:5s;"></div>
+    <div class="cloud" style="top:70%;left:-250px;animation-delay:9s;"></div>
+
+    <div class="content">
+
+        <div class="sky-card">
+
+            <p class="small">if I could rewind time...</p>
+
+            <h2>I would NEVER <br>DONE IT AGAIN ZAR</h2>
+
+            <p style="margin-top:25px;line-height:1.9;">
+                Kuch logon se rishta waqt nahi banata… dil banata hai...ZARGIYAA
+            </p>
+
+            <p class="script" style="font-size:30px;margin-top:20px;">
+             main  tumhein khone ke khayal se hi toot si jaati hoon. 🥺❤️‍🩹🫂”
+
+            <h1 class="script" style="font-size:55px;color:#9b697c;">
+                I'm really sorry. REALLY SORRY ZARGIYA🥺❤️‍🩹🫂”
+            </h1>
+
+            <div class="buttons">
+                <button class="btn back" onclick="prevPage()">← Back</button>
+                <button class="btn next" onclick="nextPage()">Next →</button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+
+    <div class="content">
+
+        <p class="small">open this letter</p>
+
+        <h2 style="font-size:50px;color:#76564b;">
+            ZARGIYA🥺❤️‍🩹🫂”
+        </h2>
+
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+
+            <div class="letter">
+                Dear You,<br><br>
+                I'm sorry.<br>
+                I truly mean it. ♡
+            </div>
+
+        </div>
+
+        <p id="envelopeHint" class="script" style="font-size:23px;">
+            Tap the envelope 💌
+        </p>
+
+        <div class="buttons">
+            <button class="btn back" onclick="prevPage()">← Back</button>
+            <button class="btn next" onclick="nextPage()">Next →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+
+    <div class="content">
+
+        <p class="small">LOVE OF MY LIFE</p>
+
+        <h2 style="font-size:52px;color:#765d72;">
+            MERA MASOOM BACHAAAAAA...
+        </h2>
+
+        <p class="script" style="font-size:27px;margin:10px;">
+            APNI ZUUUU KO MAAFI DE DAYO NA.....
+        </p>
+
+        <div class="polaroids">
+
+            <div class="polaroid">
+                <div class="photo">🌷</div>
+                <div class="caption">Amore  ❤️</div>
+            </div>
+
+            <div class="polaroid">
+                <div class="photo">☁️</div>
+                <div class="caption">Chérie 🤍</div>
+            </div>
+
+            <div class="polaroid">
+                <div class="photo">♡</div>
+                <div class="caption">LOVE U❤️ ❤️</div>
+            </div>
+
+        </div>
+
+        <p>
+        SWEET HEART... U R THE ONLY ONE..FOREVER ONE❤️
+        </p>
+
+        <div class="buttons">
+            <button class="btn back" onclick="prevPage()">← Back</button>
+            <button class="btn next" onclick="nextPage()">Next →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+
+    <div class="content">
+
+        <p class="small">MY PRINCESS</p>
+
+        <h2 style="font-size:55px;color:#668b5d;">
+            I LOVE U ZAR..❤️
+        </h2>
+
+        <div class="reason-box">
+
+            <div class="reason">
+                <span>ZARGIYAAAAA</span><br>
+                I know I made a mistake.
+            </div>
+
+            <div class="reason">
+                <span>JANAM❤️</span><br>
+                I understand TUM HURT HOI
+            </div>
+
+            <div class="reason">
+                <span>CHANDA</span><br>
+                SORRY AINDA AISA NAHI HO GA...❤️
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button class="btn back" onclick="prevPage()">← Back</button>
+            <button class="btn next" onclick="nextPage();showReasons()">Show More →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 7 -->
+<section class="page" id="page7">
+
+    <div class="content">
+
+        <div class="bloom">🌸</div>
+
+        <div class="promise">
+
+            <p class="small">a small promise</p>
+
+            <h2 style="font-size:50px;color:#76564b;">
+                I'll try to do better.
+            </h2>
+
+            <p style="line-height:2;margin-top:20px;">
+                Not because I want to erase the mistake,
+                but because I want to learn from it.
+            </p>
+
+            <p class="script" style="font-size:31px;color:#a06b78;margin-top:25px;">
+                my LOVE.... i love u na sorryyyyy my heart..
+            </p>
+
+        </div>
+
+        <div class="buttons">
+            <button class="btn back" onclick="prevPage()">← Back</button>
+            <button class="btn next" onclick="nextPage()">One Last Question →</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 8 -->
+<section class="page" id="page8">
+
+    <div class="content">
+
+        <p class="small">okay... one last thing</p>
+
+        <h1 class="question">
+            Can my sorry<br>have a little chance? ♡
+        </h1>
+
+        <div class="accept-box">
+
+            <button class="btn accept" onclick="accepted()">
+                Yes, I accept your sorry 🤍
+            </button>
+
+            <button class="btn no" id="noBtn" onmouseover="moveNo()">
+                Hmm... maybe later
+            </button>
+
+        </div>
+
+        <p id="acceptMessage"
+           class="script"
+           style="font-size:30px;margin-top:30px;">
+        </p>
+
+        <div class="buttons">
+            <button class="btn back" onclick="prevPage()">← Back</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 9 -->
+<section class="page" id="page9">
+
+    <div class="content">
+
+        <div class="final-letter">
+
+            <p class="small">MY CUTIE PPIEEEEEE</p>
+
+            <h2>From my heart...</h2>
+
+            <p>
+                I don't expect a perfect response.
+                I don't expect everything to instantly become okay.
+                I just wanted you to know that I genuinely regret
+                the moment where I hurt or disappointed you.
+            </p>
+
+            <p>
+                
+                JANAM❤️ MEINC CHUP HO JATI MSG NI KRTI ISEY MERI EGO MAT SAMJNA MEIN BAS DAR JATI hoon
+                YAAR TUMHAIN KHONAY K DAR SEY MEIN KUCH KEH NI PATI BAS...❤️
+            </p>
+
+            <p class="script"
+               style="font-size:30px;color:#f0cbd6;">
+                I HOPE K TUM MERI SORRY ACCEPT KARO GI... UR ZUUU
+            </p>
+
+        </div>
+
+        <div class="buttons">
+            <button class="btn back" onclick="prevPage()">← Back</button>
+            <button class="btn next" onclick="nextPage()">Final Surprise ✨</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 10 -->
+<section class="page" id="page10">
+
+    <div class="content">
+
+        <div class="big-heart">♡</div>
+
+        <p class="small" style="color:#fff;">
+            that's all...
+        </p>
+
+        <h1 class="end-title script">
+            I'm Sorry.
+        </h1>
+
+        <p style="max-width:600px;margin:20px auto;line-height:2;">
+            No complicated explanation.
+            BAS MUJE TUM CHAHIYA APNI AKHRI SANS TAK.. I NEED U..ONLY U..BAS TUMMM
+            MEIN SACH MEIN SHARMINDA HOON....
+            
+        
+        </p>
+
+        <h2 class="script" style="font-size:38px;">
+            Thank you for reading it all. ♡
+        </h2>
+
+        <button class="btn restart" onclick="restart()">
+            Read Again ↻
+        </button>
+
+    </div>
+</section>
+
+
+<!-- NAVIGATION DOTS -->
+<div class="nav" id="nav"></div>
+
+
+<script>
+
+let currentPage = 1;
+const totalPages = 10;
+
+
+/* CREATE NAV DOTS */
+
+const nav = document.getElementById("nav");
+
+for(let i=1;i<=totalPages;i++){
+
+    const dot = document.createElement("div");
+
+    dot.className = "dot";
+
+    if(i===1){
+        dot.classList.add("active");
+    }
+
+    dot.onclick = function(){
+        goToPage(i);
+    };
+
+    nav.appendChild(dot);
+}
+
+
+/* PAGE NAVIGATION */
+
+function goToPage(number){
+
+    if(number < 1 || number > totalPages) return;
+
+    document.getElementById("page"+currentPage)
+        .classList.remove("active");
+
+    currentPage = number;
+
+    document.getElementById("page"+currentPage)
+        .classList.add("active");
+
+    document.querySelectorAll(".dot")
+        .forEach((dot,index)=>{
+
+            dot.classList.toggle(
+                "active",
+                index + 1 === currentPage
+            );
+
+        });
+
+    createPetals();
+
+    if(currentPage === 2){
+        startTyping();
+    }
+
+    if(currentPage === 6){
+        showReasons();
+    }
+}
+
+
+function nextPage(){
+    goToPage(currentPage + 1);
+}
+
+
+function prevPage(){
+    goToPage(currentPage - 1);
+}
+
+
+/* PAGE 2 TYPING EFFECT */
+
+let typingStarted = false;
+
+const message =
+"u r imp ZARGIYA... meray lia khas ho sab se khas .... meri jan..mera bacha meri zar..glory of my life...dilbaram...ishqam..sorry... love u so muchhhh januuu..so sorryyyy"
+
+function startTyping(){
+
+    if(typingStarted) return;
+
+    typingStarted = true;
+
+    const element =
+        document.getElementById("typingText");
+
+    let index = 0;
+
+    function type(){
+
+        if(index < message.length){
+
+            element.innerHTML += message.charAt(index);
+
+            index++;
+
+            setTimeout(type,35);
+
+        }
+
+    }
+
+    type();
+}
+
+
+/* ENVELOPE */
+
+function openEnvelope(){
+
+    const envelope =
+        document.getElementById("envelope");
+
+    envelope.classList.toggle("open");
+
+    document.getElementById("envelopeHint")
+        .innerHTML =
+        "A little letter... just for you ♡";
+}
+
+
+/* PAGE 6 REASONS */
+
+function showReasons(){
+
+    const reasons =
+        document.querySelectorAll(".reason");
+
+    reasons.forEach((reason,index)=>{
+
+        setTimeout(()=>{
+            reason.classList.add("show");
+        },index * 500);
+
+    });
+}
+
+
+/* PAGE 8 ACCEPT */
+
+function accepted(){
+
+    document.getElementById("acceptMessage")
+        .innerHTML =
+        "Thank you... that little yes means a lot. ♡";
+
+    createPetals();
+
+    setTimeout(()=>{
+        goToPage(9);
+    },1800);
+}
+
+
+/* MOVING NO BUTTON */
+
+function moveNo(){
+
+    const button =
+        document.getElementById("noBtn");
+
+    const maxX = window.innerWidth / 2 - 100;
+    const maxY = window.innerHeight / 2 - 100;
+
+    const x =
+        Math.random() * maxX - maxX/2;
+
+    const y =
+        Math.random() * maxY - maxY/2;
+
+    button.style.transform =
+        `translate(${x}px,${y}px)`;
+}
+
+
+/* FALLING PETALS */
+
+function createPetals(){
+
+    const symbols = ["♡","✿","♥","✦","❀"];
+
+    for(let i=0;i<15;i++){
+
+        const petal =
+            document.createElement("div");
+
+        petal.className = "petal";
+
+        petal.innerHTML =
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        petal.style.left =
+            Math.random()*100 + "vw";
+
+        petal.style.animationDuration =
+            (4 + Math.random()*5) + "s";
+
+        petal.style.fontSize =
+            (12 + Math.random()*20) + "px";
+
+        document.body.appendChild(petal);
+
+        setTimeout(()=>{
+            petal.remove();
+        },9000);
+    }
+}
+
+
+/* RESTART */
+
+function restart(){
+
+    typingStarted = false;
+
+    document.getElementById("typingText")
+        .innerHTML = "";
+
+    document.getElementById("envelope")
+        .classList.remove("open");
+
+    document.getElementById("acceptMessage")
+        .innerHTML = "";
+
+    document.querySelectorAll(".reason")
+        .forEach(reason=>{
+            reason.classList.remove("show");
+        });
+
+    goToPage(1);
+}
+
+
+/* KEYBOARD NAVIGATION */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "ArrowRight"){
+        nextPage();
+    }
+
+    if(e.key === "ArrowLeft"){
+        prevPage();
+    }
+
+});
+
+
+/* INITIAL PETALS */
+
+setTimeout(createPetals,500);
+
+</script>
+
+</body>
+</html>
